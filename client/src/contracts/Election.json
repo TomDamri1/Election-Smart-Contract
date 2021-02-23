@@ -90,15 +90,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"candidates\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"candidatesCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"vote\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"voters\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/tom/projects/blockchain/election_react/contracts/Election.sol\":\"Election\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/tom/projects/blockchain/election_react/contracts/Election.sol\":{\"keccak256\":\"0xf31307c7ab7f7e0f1f1f0155fa6aadd579c7995e31dba96919b49b34ab03d190\",\"urls\":[\"bzz-raw://e3cf1da6c85631169810fd32cb791e7796ba5ff66e509dab71c4ca2a89db3a40\",\"dweb:/ipfs/QmSkYtJUyy8kaAfWNXBe8cJcZ6ZCrUhJ9WyqFftB65b6T9\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506100556040518060400160405280600b81526020017f63616e646964617465203100000000000000000000000000000000000000000081525061009e60201b60201c565b6100996040518060400160405280600b81526020017f63616e646964617465203200000000000000000000000000000000000000000081525061009e60201b60201c565b6101bf565b60026000815480929190600101919050555060405180606001604052806002548152602001828152602001600081525060016000600254815260200190815260200160002060008201518160000155602082015181600101908051906020019061010992919061011a565b506040820151816002015590505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061015b57805160ff1916838001178555610189565b82800160010185558215610189579182015b8281111561018857825182559160200191906001019061016d565b5b509050610196919061019a565b5090565b6101bc91905b808211156101b85760008160009055506001016101a0565b5090565b90565b6103bc806101ce6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630121b93f146100515780632d35a8a21461007f5780633477ee2e1461009d578063a3ec138d14610152575b600080fd5b61007d6004803603602081101561006757600080fd5b81019080803590602001909291905050506101ae565b005b61008761029f565b6040518082815260200191505060405180910390f35b6100c9600480360360208110156100b357600080fd5b81019080803590602001909291905050506102a5565b6040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b838110156101155780820151818401526020810190506100fa565b50505050905090810190601f1680156101425780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6101946004803603602081101561016857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610367565b604051808215151515815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161561020457600080fd5b60008111801561021657506002548111155b61021f57600080fd5b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600160008281526020019081526020016000206002016000815480929190600101919050555050565b60025481565b6001602052806000526040600020600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103575780601f1061032c57610100808354040283529160200191610357565b820191906000526020600020905b81548152906001019060200180831161033a57829003601f168201915b5050505050908060020154905083565b60006020528060005260406000206000915054906101000a900460ff168156fea265627a7a723158209a82797c065cd2fd389d9679d3194779ebb9cb20e876e33ba4a5a9519366646264736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80630121b93f146100515780632d35a8a21461007f5780633477ee2e1461009d578063a3ec138d14610152575b600080fd5b61007d6004803603602081101561006757600080fd5b81019080803590602001909291905050506101ae565b005b61008761029f565b6040518082815260200191505060405180910390f35b6100c9600480360360208110156100b357600080fd5b81019080803590602001909291905050506102a5565b6040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b838110156101155780820151818401526020810190506100fa565b50505050905090810190601f1680156101425780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6101946004803603602081101561016857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610367565b604051808215151515815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161561020457600080fd5b60008111801561021657506002548111155b61021f57600080fd5b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600160008281526020019081526020016000206002016000815480929190600101919050555050565b60025481565b6001602052806000526040600020600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103575780601f1061032c57610100808354040283529160200191610357565b820191906000526020600020905b81548152906001019060200180831161033a57829003601f168201915b5050505050908060020154905083565b60006020528060005260406000206000915054906101000a900460ff168156fea265627a7a723158209a82797c065cd2fd389d9679d3194779ebb9cb20e876e33ba4a5a9519366646264736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"candidates\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"candidatesCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"vote\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"voters\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/tom/projects/blockchain/Election-Smart-Contract/contracts/Election.sol\":\"Election\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/tom/projects/blockchain/Election-Smart-Contract/contracts/Election.sol\":{\"keccak256\":\"0xf31307c7ab7f7e0f1f1f0155fa6aadd579c7995e31dba96919b49b34ab03d190\",\"urls\":[\"bzz-raw://e3cf1da6c85631169810fd32cb791e7796ba5ff66e509dab71c4ca2a89db3a40\",\"dweb:/ipfs/QmSkYtJUyy8kaAfWNXBe8cJcZ6ZCrUhJ9WyqFftB65b6T9\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506100556040518060400160405280600b81526020017f63616e646964617465203100000000000000000000000000000000000000000081525061009e60201b60201c565b6100996040518060400160405280600b81526020017f63616e646964617465203200000000000000000000000000000000000000000081525061009e60201b60201c565b6101bf565b60026000815480929190600101919050555060405180606001604052806002548152602001828152602001600081525060016000600254815260200190815260200160002060008201518160000155602082015181600101908051906020019061010992919061011a565b506040820151816002015590505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061015b57805160ff1916838001178555610189565b82800160010185558215610189579182015b8281111561018857825182559160200191906001019061016d565b5b509050610196919061019a565b5090565b6101bc91905b808211156101b85760008160009055506001016101a0565b5090565b90565b6103bc806101ce6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630121b93f146100515780632d35a8a21461007f5780633477ee2e1461009d578063a3ec138d14610152575b600080fd5b61007d6004803603602081101561006757600080fd5b81019080803590602001909291905050506101ae565b005b61008761029f565b6040518082815260200191505060405180910390f35b6100c9600480360360208110156100b357600080fd5b81019080803590602001909291905050506102a5565b6040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b838110156101155780820151818401526020810190506100fa565b50505050905090810190601f1680156101425780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6101946004803603602081101561016857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610367565b604051808215151515815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161561020457600080fd5b60008111801561021657506002548111155b61021f57600080fd5b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600160008281526020019081526020016000206002016000815480929190600101919050555050565b60025481565b6001602052806000526040600020600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103575780601f1061032c57610100808354040283529160200191610357565b820191906000526020600020905b81548152906001019060200180831161033a57829003601f168201915b5050505050908060020154905083565b60006020528060005260406000206000915054906101000a900460ff168156fea265627a7a72315820dc5fead61269ede17526019eb8ab6784cd1c567298a2d05cc2118de321055ce264736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80630121b93f146100515780632d35a8a21461007f5780633477ee2e1461009d578063a3ec138d14610152575b600080fd5b61007d6004803603602081101561006757600080fd5b81019080803590602001909291905050506101ae565b005b61008761029f565b6040518082815260200191505060405180910390f35b6100c9600480360360208110156100b357600080fd5b81019080803590602001909291905050506102a5565b6040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b838110156101155780820151818401526020810190506100fa565b50505050905090810190601f1680156101425780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6101946004803603602081101561016857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610367565b604051808215151515815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff161561020457600080fd5b60008111801561021657506002548111155b61021f57600080fd5b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550600160008281526020019081526020016000206002016000815480929190600101919050555050565b60025481565b6001602052806000526040600020600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103575780601f1061032c57610100808354040283529160200191610357565b820191906000526020600020905b81548152906001019060200180831161033a57829003601f168201915b5050505050908060020154905083565b60006020528060005260406000206000915054906101000a900460ff168156fea265627a7a72315820dc5fead61269ede17526019eb8ab6784cd1c567298a2d05cc2118de321055ce264736f6c63430005100032",
   "sourceMap": "26:1258:0:-;;;493:102;8:9:-1;5:2;;;30:1;27;20:12;5:2;493:102:0;524:27;;;;;;;;;;;;;;;;;;:12;;;:27;;:::i;:::-;561;;;;;;;;;;;;;;;;;;:12;;;:27;;:::i;:::-;26:1258;;601:161;662:15;;:17;;;;;;;;;;;;;719:36;;;;;;;;729:15;;719:36;;;;746:5;719:36;;;;753:1;719:36;;;689:10;:27;700:15;;689:27;;;;;;;;;;;:66;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;601:161;:::o;26:1258::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
   "deployedSourceMap": "26:1258:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:1258:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;768:514;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;768:514:0;;;;;;;;;;;;;;;;;:::i;:::-;;385:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;290:47;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;290:47:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;290:47:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;186:38;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;186:38:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;768:514;946:6;:18;953:10;946:18;;;;;;;;;;;;;;;;;;;;;;;;;945:19;937:28;;;;;;1027:1;1012:12;:16;:51;;;;;1048:15;;1032:12;:31;;1012:51;1004:60;;;;;;1187:4;1166:6;:18;1173:10;1166:18;;;;;;;;;;;;;;;;:25;;;;;;;;;;;;;;;;;;1239:10;:24;1250:12;1239:24;;;;;;;;;;;:34;;;:36;;;;;;;;;;;;;768:514;:::o;385:30::-;;;;:::o;290:47::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;186:38::-;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.5.16;\n\ncontract Election {\n    struct Candidate {\n        uint256 id;\n        string name;\n        uint256 voteCount;\n    }\n\n    //store accoutnts that have voted\n    mapping(address => bool) public voters;\n    // we are saving the values :\n    // {unit : Candidate}\n    mapping(uint256 => Candidate) public candidates;\n    // count the number of the candidates\n    uint256 public candidatesCount;\n\n    // constructor\n    //the same name as the contruct ==> constructor\n    constructor() public {\n        addCandidate(\"candidate 1\");\n        addCandidate(\"candidate 2\");\n    }\n\n    function addCandidate(string memory _name) private {\n        candidatesCount++;\n        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);\n    }\n\n    function vote(uint256 _candidateId) public {\n        //require:\n        //1. the voter never voted before\n        //      the voter is not in the voters mapping\n        require(!voters[msg.sender]);\n        //2. valid candidate\n        require(_candidateId > 0 && _candidateId <= candidatesCount);\n\n\n        //record that voter has voted\n        //msg.sender -> a way to access the sender \n        voters[msg.sender] = true;\n        //update candidate vote count\n        candidates[_candidateId].voteCount++;\n    }\n}\n",
-  "sourcePath": "/home/tom/projects/blockchain/election_react/contracts/Election.sol",
+  "sourcePath": "/home/tom/projects/blockchain/Election-Smart-Contract/contracts/Election.sol",
   "ast": {
-    "absolutePath": "/home/tom/projects/blockchain/election_react/contracts/Election.sol",
+    "absolutePath": "/home/tom/projects/blockchain/Election-Smart-Contract/contracts/Election.sol",
     "exportedSymbols": {
       "Election": [
         87
@@ -776,7 +776,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 102,
+                              "referencedDeclaration": 139,
                               "src": "953:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -825,10 +825,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        105,
-                        106
+                        142,
+                        143
                       ],
-                      "referencedDeclaration": 105,
+                      "referencedDeclaration": 142,
                       "src": "937:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -983,10 +983,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        105,
-                        106
+                        142,
+                        143
                       ],
-                      "referencedDeclaration": 105,
+                      "referencedDeclaration": 142,
                       "src": "1004:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1043,7 +1043,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 102,
+                          "referencedDeclaration": 139,
                           "src": "1173:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1245,7 +1245,7 @@
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/tom/projects/blockchain/election_react/contracts/Election.sol",
+      "absolutePath": "/home/tom/projects/blockchain/Election-Smart-Contract/contracts/Election.sol",
       "exportedSymbols": {
         "Election": [
           87
@@ -2025,10 +2025,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                105,
-                                106
+                                142,
+                                143
                               ],
-                              "referencedDeclaration": 105,
+                              "referencedDeclaration": 142,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -2090,7 +2090,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 102,
+                                          "referencedDeclaration": 139,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -2149,10 +2149,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                105,
-                                106
+                                142,
+                                143
                               ],
-                              "referencedDeclaration": 105,
+                              "referencedDeclaration": 142,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -2344,7 +2344,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 102,
+                                      "referencedDeclaration": 139,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2501,12 +2501,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x68Fb306E9f7e863a049AfffcBBF06a275cb4961b",
-      "transactionHash": "0x5150ddd8ba19a645aec6b6999074d386beffe1f27814bfc2d95dafa782010541"
+      "address": "0xDECb6C904b024B7DedA4b6ba79089C44dFa75Ade",
+      "transactionHash": "0x03a5cb4ef74ee2a1b80a281183ff63650ec5a651daa75fb6d6122d8b0f8e7735"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-02-21T17:57:33.128Z",
+  "updatedAt": "2021-02-21T19:06:24.340Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

@@ -3,5 +3,5 @@ a simple smart contract that simulates an election
 
 ## Technologies
 
-Truffle
-ReactJS
+[x] Truffle
+[x] ReactJS

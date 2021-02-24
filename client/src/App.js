@@ -1,67 +1,119 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Election from "./contracts/Election.json";
 import getWeb3 from "./getWeb3";
+import { Button, CircularProgress } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+import {
+  Chart,
+  BarSeries,
+  Title,
+  ArgumentAxis,
+  ValueAxis,
+} from "@devexpress/dx-react-chart-material-ui";
 
+import { Animation } from "@devexpress/dx-react-chart";
 import "./App.css";
 
-class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+const App = () => {
+  const [web3, setWeb3] = useState(null);
+  const [accounts, setAccounts] = useState(null);
+  const [contract, setContract] = useState(null);
+  const [c1v, setC1v] = useState(0);
+  const [c2v, setC2v] = useState(0);
 
-  componentDidMount = async () => {
+  const voteFor = async (candidateId) => {
     try {
-      // Get network provider and web3 instance.
-      const web3 = await getWeb3();
-
-      // Use web3 to get the user's accounts.
-      const accounts = await web3.eth.getAccounts();
-
-      // Get the contract instance.
-      const networkId = await web3.eth.net.getId();
-      const deployedNetwork = Election.networks[networkId];
-      const instance = new web3.eth.Contract(
-        Election.abi,
-        deployedNetwork && deployedNetwork.address
-      );
-
-      // Set web3, accounts, and contract to the state, and then proceed with an
-      // example of interacting with the contract's methods.
-      this.setState({ web3, accounts, contract: instance });
-    } catch (error) {
-      // Catch any errors for any of the above operations.
-      alert(
-        `Failed to load web3, accounts, or contract. Check console for details.`
-      );
-      console.error(error);
-    }
+      try {
+        await contract.methods.vote(candidateId).send({ from: accounts[0] });
+      } catch (e) {
+        alert("invalid vote!");
+      }
+    } catch (e) {}
   };
 
-  runExample = async () => {
-    const { accounts, contract } = this.state;
-    const { methods } = contract;
-    try {
-      await contract.methods.vote(1).send({ from: accounts[0] });
-      const response = await contract.methods.get().call();
-    } catch {}
-    console.log((await methods.candidates(1).call())[0],await methods.candidates(2).call());
-  };
+  useEffect(() => {
+    const deployContract = async () => {
+      try {
+        const web3Instance = await getWeb3();
+        const accountsInstance = await web3Instance.eth.getAccounts();
+        const networkId = await web3Instance.eth.net.getId();
+        const deployedNetwork = Election.networks[networkId];
+        const contractInstance = new web3Instance.eth.Contract(
+          Election.abi,
+          deployedNetwork && deployedNetwork.address
+        );
 
-  render() {
-    if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
-    }
-    return (
+        const candidate1 = extractCandidate(
+          await (await contractInstance.methods.candidates(1)).call()
+        );
+        const candidate2 = extractCandidate(
+          await (await contractInstance.methods.candidates(2)).call()
+        );
+        console.log(candidate1, candidate2);
+
+        setC1v(candidate1.votes);
+        setC2v(candidate2.votes);
+        setWeb3(web3Instance);
+        setAccounts(accountsInstance);
+        setContract(contractInstance);
+      } catch (e) {
+        alert(
+          `Failed to load web3, accounts, or contract. Check console for details.`
+        );
+        console.error(e);
+      }
+    };
+    deployContract();
+  }, []);
+  try {
+    return !web3 ? (
+      <div className="App">
+        <CircularProgress />
+        <div>Loading Web3, accounts, and contract...</div>
+      </div>
+    ) : (
       <div className="App">
         <h1>Israeli Votes #33</h1>
         <h2>Via smart contract</h2>
 
         <p>
-          Try changing the value stored on <strong>line 40</strong> of App.js.
+          Hello and welcome to the election #33! please vote for your candidate.
         </p>
-        <div>The stored value is: {this.state.storageValue}</div>
-        <button onClick={this.runExample}>vote for bibi</button>
+        <Button variant="contained" color="primary" onClick={() => voteFor(1)}>
+          vote for bibi
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => voteFor(2)}
+        >
+          vote for only-not-bibi
+        </Button>
+        <Paper style={{ width: 400 }}>
+          <Chart
+            data={[
+              { candidate: "Bibi", votes: c1v },
+              { candidate: "Not Bibi", votes: c2v },
+            ]}
+          >
+            <ArgumentAxis />
+            <ValueAxis max={7} />
+            <BarSeries valueField="votes" argumentField="candidate" />
+            <Title text="Election status" />
+            <Animation />
+          </Chart>
+        </Paper>
       </div>
     );
-  }
-}
+  } catch (e) {}
+};
 
 export default App;
+
+const extractCandidate = (candidate) => {
+  return {
+    id: parseInt(candidate[0], 10),
+    name: candidate[1],
+    votes: parseInt(candidate[2], 10),
+  };
+};

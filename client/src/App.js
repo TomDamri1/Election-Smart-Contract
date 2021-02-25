@@ -3,6 +3,9 @@ import Election from "./contracts/Election.json";
 import getWeb3 from "./getWeb3";
 import { Button, CircularProgress } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import { Animation } from "@devexpress/dx-react-chart";
+import "./App.css";
+import Countdown from "react-countdown";
 import {
   Chart,
   BarSeries,
@@ -11,22 +14,28 @@ import {
   ValueAxis,
 } from "@devexpress/dx-react-chart-material-ui";
 
-import { Animation } from "@devexpress/dx-react-chart";
-import "./App.css";
-
 const App = () => {
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState(null);
   const [contract, setContract] = useState(null);
   const [c1v, setC1v] = useState(0);
   const [c2v, setC2v] = useState(0);
-
+  const [timeLeft, setTimeLeft] = useState(null);
+  const [locked, setLocked] = useState(false);
   const voteFor = async (candidateId) => {
     try {
       try {
         await contract.methods.vote(candidateId).send({ from: accounts[0] });
       } catch (e) {
-        alert("invalid vote!");
+        let _locked;
+        try {
+          (async () => {
+            _locked = await contract.methods.isContractLocked().call();
+          })();
+        } catch {}
+        _locked
+          ? alert("you cannot vote anymore, time is up")
+          : alert("invalid vote!");
       }
     } catch (e) {}
   };
@@ -42,7 +51,14 @@ const App = () => {
           Election.abi,
           deployedNetwork && deployedNetwork.address
         );
-
+        const _timeLeft = parseInt(
+          await contractInstance.methods.secondsRemaining().call(),
+          10
+        );
+        const _locked = await contractInstance.methods
+          .isContractLocked()
+          .call();
+        console.log("timeleft:", _timeLeft, timeLeft, _locked, locked);
         const candidate1 = extractCandidate(
           await (await contractInstance.methods.candidates(1)).call()
         );
@@ -56,6 +72,8 @@ const App = () => {
         setWeb3(web3Instance);
         setAccounts(accountsInstance);
         setContract(contractInstance);
+        setTimeLeft(_timeLeft);
+        setLocked(_locked);
       } catch (e) {
         alert(
           `Failed to load web3, accounts, or contract. Check console for details.`
@@ -64,7 +82,7 @@ const App = () => {
       }
     };
     deployContract();
-  }, []);
+  }, [locked, timeLeft]);
   try {
     return !web3 ? (
       <div className="App">
@@ -75,17 +93,24 @@ const App = () => {
       <div className="App">
         <h1>Israeli Votes #33</h1>
         <h2>Via smart contract</h2>
-
+        <h3> time left (approximately)</h3>
+        <Countdown date={Date.now() + timeLeft * 1000} />,
         <p>
           Hello and welcome to the election #33! please vote for your candidate.
         </p>
-        <Button variant="contained" color="primary" onClick={() => voteFor(1)}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => voteFor(1)}
+          disabled={timeLeft === 0}
+        >
           vote for bibi
         </Button>
         <Button
           variant="contained"
           color="secondary"
           onClick={() => voteFor(2)}
+          disabled={timeLeft === 0}
         >
           vote for only-not-bibi
         </Button>
@@ -99,7 +124,7 @@ const App = () => {
             <ArgumentAxis />
             <ValueAxis max={7} />
             <BarSeries valueField="votes" argumentField="candidate" />
-            <Title text="Election status" />
+            <Title text={!locked ? "Election status" : "Final Status!"} />
             <Animation />
           </Chart>
         </Paper>

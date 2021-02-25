@@ -92,10 +92,31 @@ contract("Election", (accounts) => {
       );
     }
     const arrayAfterDoubleVoting = await saveVotesAsArray();
-    assert.deepEqual(arrayAfterDoubleVoting,arrayBeforeDoubleVoting)
+    assert.deepEqual(arrayAfterDoubleVoting, arrayBeforeDoubleVoting);
   });
 
-  
+  it("locks the contract after some time", async () => {
+    const ourCandidate = 2;
+    const someTime = 60;
+    const extraSeconds = 1;
+    await instance.vote(ourCandidate, { from: accounts[5] });
+
+    const arrayBeforeDoubleVoting = await saveVotesAsArray();
+
+    
+    console.log("logging before");
+    await new Promise((resolve) =>
+      setTimeout(() => resolve(), (someTime + extraSeconds) * 1000)
+    );
+    console.log("logging after");
+    try {
+      await instance.vote(ourCandidate, { from: accounts[6] });
+    } catch (e) {}
+
+    const arrayAfterDoubleVoting = await saveVotesAsArray();
+    assert.deepEqual(arrayAfterDoubleVoting, arrayBeforeDoubleVoting);
+  });
+
   const saveVotesAsArray = async () => {
     var votesArray = [];
     const numberOfCandidates = await instance.candidatesCount();

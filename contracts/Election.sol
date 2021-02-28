@@ -15,7 +15,7 @@ contract Election {
     // count the number of the candidates
     uint256 public candidatesCount;
     uint256 private start = now;
-    uint256 private secondsAfter = 60 * 5;
+    uint256 private secondsAfter = 70;
 
     // constructor
     //the same name as the contruct ==> constructor

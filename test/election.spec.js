@@ -97,18 +97,18 @@ contract("Election", (accounts) => {
 
   it("locks the contract after some time", async () => {
     const ourCandidate = 2;
-    const someTime = 60;
+    const someTime = 70;
     const extraSeconds = 1;
     await instance.vote(ourCandidate, { from: accounts[5] });
 
     const arrayBeforeDoubleVoting = await saveVotesAsArray();
 
     
-    console.log("logging before");
+    console.log("waiting for vote to be over");
     await new Promise((resolve) =>
       setTimeout(() => resolve(), (someTime + extraSeconds) * 1000)
     );
-    console.log("logging after");
+    console.log("vote is over");
     try {
       await instance.vote(ourCandidate, { from: accounts[6] });
     } catch (e) {}

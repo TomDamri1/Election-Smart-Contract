@@ -124,7 +124,7 @@ const App = () => {
             <ArgumentAxis />
             <ValueAxis max={7} />
             <BarSeries valueField="votes" argumentField="candidate" />
-            <Title text={!locked ? "Election status" : "Final Status!"} />
+            <Title text={timeLeft !== 0 ? "Election status" : "Final Status!"} />
             <Animation />
           </Chart>
         </Paper>
